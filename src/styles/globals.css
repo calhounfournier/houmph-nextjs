@@ -1,0 +1,440 @@
+/* Font Face Declarations */
+@font-face {
+  font-family: "Kairos Sans W04";
+  src: url("/fonts/kairos_sans/b7c470cc-e9c9-4c17-a3f2-a769c0050fa0.eot?#iefix");
+  src: url("/fonts/kairos_sans/b7c470cc-e9c9-4c17-a3f2-a769c0050fa0.eot?#iefix") format("eot"),
+       url("/fonts/kairos_sans/628c2f20-157e-405f-a995-806d8f05c93a.woff2") format("woff2"),
+       url("/fonts/kairos_sans/c0d1a96e-4592-449b-ae0a-c734cb6596f6.woff") format("woff"),
+       url("/fonts/kairos_sans/9a7d76b4-6065-4143-b53a-c62f5179ebdb.ttf") format("truetype"),
+       url("/fonts/kairos_sans/36612a14-299e-417e-a372-35b4421b9a62.svg#36612a14-299e-417e-a372-35b4421b9a62") format("svg");
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Kairos Sans W04";
+  src: url("/fonts/kairos_sans/539794b9-5970-4ea9-96a2-75dcf19bd7c8.eot?#iefix");
+  src: url("/fonts/kairos_sans/539794b9-5970-4ea9-96a2-75dcf19bd7c8.eot?#iefix") format("eot"),
+       url("/fonts/kairos_sans/8e41d84d-f72d-4dbf-ad6d-2670009fbaeb.woff2") format("woff2"),
+       url("/fonts/kairos_sans/e1e8ed7a-6ae9-47a4-8eb5-90a63a6569b0.woff") format("woff"),
+       url("/fonts/kairos_sans/b3fb2b53-ce6d-430d-bb26-bb88ebc783a3.ttf") format("truetype"),
+       url("/fonts/kairos_sans/2e76cdd8-07d7-4946-9bdd-6b5268184c5f.svg#2e76cdd8-07d7-4946-9bdd-6b5268184c5f") format("svg");
+  font-weight: 800;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Yorkshire Script";
+  src: url("/fonts/yorkshire_script/yorkshirebrushscript-regular-webfont.eot");
+  src: url("/fonts/yorkshire_script/yorkshirebrushscript-regular-webfont.eot") format("eot"),
+       url("/fonts/yorkshire_script/yorkshirebrushscript-regular-webfont.woff2") format("woff2"),
+       url("/fonts/yorkshire_script/yorkshirebrushscript-regular-webfont.woff") format("woff"),
+       url("/fonts/yorkshire_script/yorkshirebrushscript-regular-webfont.ttf") format("truetype"),
+       url("/fonts/yorkshire_script/yorkshirebrushscript-regular-webfont.svg") format("svg");
+  font-weight: 400;
+  font-style: normal;
+}
+
+/* CSS Variables */
+:root {
+  --accent-color-1: black;
+  --accent-color-2: #E40046;
+  --accent-color-3: #FCE300;
+  --accent-color-4: rgba(255, 255, 255, 0.8);
+  --text-color: rgba(0, 0, 0, 0.77);
+  --base-font-size: 22px;
+  --base-line-height: 28px;
+}
+
+/* Reset and Base Styles */
+* {
+  box-sizing: border-box;
+}
+
+*::selection {
+  background-color: rgba(228, 0, 70, 0.8);
+  color: rgba(255, 255, 255, 0.8);
+}
+
+body {
+  font-family: "Kairos Sans W04", 'Lucida Bright', Georgia, serif;
+  color: var(--text-color);
+  text-rendering: optimizeLegibility;
+  font-size: 100%;
+  background-color: var(--accent-color-3);
+  margin: 0;
+  padding: 0;
+}
+
+/* Layout */
+.wrapper {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 14px 56px 14px;
+}
+
+@media (min-width: 1600px) {
+  .wrapper {
+    max-width: 1600px;
+  }
+}
+
+/* Typography */
+h1, h2, h3, h4, h5, h6, legend {
+  text-align: center;
+}
+
+h1 {
+  font-size: 1.5rem;
+  text-transform: uppercase;
+  font-weight: 800;
+  color: var(--accent-color-4);
+  margin: 0;
+}
+
+h2 {
+  font-size: 3rem;
+  font-family: "Yorkshire Script";
+  margin-bottom: 28px;
+}
+
+@media (min-width: 950px) {
+  h2 {
+    font-size: 4rem;
+  }
+}
+
+@media (min-width: 1600px) {
+  h2 {
+    font-size: 6rem;
+  }
+}
+
+h3 {
+  font-size: 1.5rem;
+  border-top: solid 3px var(--text-color);
+  border-bottom: solid 3px var(--text-color);
+  padding: 7px 0;
+  display: inline-block;
+  margin-bottom: 28px;
+}
+
+h5 {
+  color: var(--text-color);
+  font-weight: 800;
+  text-transform: uppercase;
+  font-size: 1rem;
+}
+
+h5 span {
+  background-color: var(--accent-color-3);
+  padding: 0px 0.5rem;
+}
+
+p {
+  text-align: center;
+}
+
+a {
+  color: var(--text-color);
+  text-decoration: none;
+  border-bottom: rgba(0, 0, 0, 0.5) solid 3px;
+  transition: border-bottom-color 0.3s ease;
+}
+
+a:hover {
+  border-bottom: var(--accent-color-1) solid 3px;
+}
+
+/* Lists */
+ul {
+  margin-bottom: 28px;
+  border-color: rgba(255, 255, 255, 0.5);
+  list-style: none;
+  padding: 0;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+}
+
+@media (min-width: 600px) {
+  ul {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 950px) {
+  ul {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (min-width: 1600px) {
+  ul {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+li {
+  display: block;
+  background-color: var(--accent-color-4);
+  border-radius: 8px;
+  margin-bottom: 1rem;
+  padding: 28px;
+  cursor: pointer;
+  transition: all 0.1s ease;
+}
+
+li:hover {
+  transform: scale(1.01) rotate(-1deg);
+  box-shadow: 0 1px 0 rgba(252, 227, 0, 0.9),
+              0 2px 0 rgba(252, 227, 0, 0.85),
+              0 3px 0 rgba(252, 227, 0, 0.8),
+              0 4px 0 rgba(252, 227, 0, 0.75),
+              0 5px 0 rgba(252, 227, 0, 0.7),
+              0 6px 0 rgba(252, 227, 0, 0.65),
+              0 7px 0 rgba(252, 227, 0, 0.6),
+              0 8px 0 rgba(252, 227, 0, 0.55),
+              0 0 5px rgba(0, 0, 0, 0.05),
+              0 1px 3px rgba(0, 0, 0, 0.2),
+              0 3px 5px rgba(0, 0, 0, 0.2),
+              0 5px 10px rgba(0, 0, 0, 0.2),
+              0 10px 10px rgba(0, 0, 0, 0.2),
+              0 20px 20px rgba(0, 0, 0, 0.3);
+}
+
+hr {
+  border-width: 2px;
+  display: block;
+  border-style: solid;
+  position: relative;
+  top: -1.25rem;
+  z-index: -1000;
+  border-radius: 8px;
+}
+
+@media (min-width: 600px) {
+  hr {
+    top: -1.5rem;
+  }
+}
+
+/* Sections */
+section {
+  margin-bottom: 56px;
+  text-align: center;
+}
+
+#sale_banner {
+  display: block;
+  position: fixed;
+  width: 100%;
+  padding: 28px 0;
+  background-color: rgba(228, 0, 70, 0.8);
+  z-index: 950;
+  top: 0;
+  left: 0;
+}
+
+#intro {
+  padding-top: 168px;
+}
+
+/* Form Styles */
+#form-over {
+  background-color: rgba(0, 0, 0, 0.9);
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  z-index: 1000;
+  top: 0;
+  left: 0;
+  padding: 28px;
+  overflow-x: scroll;
+  display: block;
+  -webkit-overflow-scrolling: touch;
+}
+
+.contact-form {
+  padding-top: 28px;
+}
+
+@media (min-width: 1600px) {
+  .contact-form {
+    padding-top: 168px;
+  }
+}
+
+#close_box {
+  color: rgba(228, 0, 70, 0.6);
+  position: fixed;
+  top: 0;
+  right: 0;
+  padding: 9px;
+  z-index: 1010;
+}
+
+#close_box a {
+  text-decoration: none;
+  font-size: 2rem;
+  color: rgba(255, 255, 255, 0.6);
+  transition: color 0.3s ease;
+}
+
+#close_box a:hover {
+  color: var(--accent-color-4);
+}
+
+#contact-form {
+  text-align: center;
+}
+
+#contact-form h2 {
+  color: var(--accent-color-4);
+}
+
+.contact-form label.error,
+div#errors {
+  color: var(--accent-color-2) !important;
+}
+
+.contact-form #msg_submitting,
+.contact-form #msg_submitted {
+  display: none;
+}
+
+#msg_submitting,
+#msg_submitted {
+  color: var(--accent-color-4);
+  text-align: center;
+}
+
+#msg_submitted h3 {
+  border: none;
+  margin-top: 28px;
+}
+
+/* Form Inputs */
+input[type="text"],
+input[type="email"],
+textarea {
+  text-align: center;
+  -webkit-appearance: none;
+  border: none;
+  color: var(--accent-color-4);
+  border-bottom: rgba(255, 255, 255, 0.3) solid 3px;
+  margin-bottom: 28px;
+  font-weight: 400;
+  width: 100%;
+  height: 84px;
+  background-color: rgba(0, 0, 0, 0);
+  transition: border-color 0.3s ease;
+  font-size: 1rem;
+}
+
+input[type="text"]:focus,
+input[type="email"]:focus {
+  border-color: var(--accent-color-3);
+  outline: none;
+}
+
+@media (min-width: 600px) {
+  input[type="text"],
+  input[type="email"],
+  textarea {
+    font-size: 1.5rem;
+  }
+}
+
+@media (min-width: 750px) {
+  input[type="text"],
+  input[type="email"],
+  textarea {
+    font-size: 2rem;
+  }
+}
+
+textarea {
+  border: rgba(255, 255, 255, 0.3) solid 3px;
+  text-align: left;
+  padding: 0.25rem;
+  height: 168px;
+  margin-top: 28px;
+}
+
+@media (min-width: 750px) {
+  textarea {
+    height: 224px;
+  }
+}
+
+@media (min-width: 950px) {
+  textarea {
+    height: 280px;
+  }
+}
+
+button,
+.button {
+  -webkit-appearance: none;
+  border-radius: 0.5rem;
+  border: solid 3px;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0);
+  margin-top: 28px;
+  font-size: 2rem;
+}
+
+@media (min-width: 750px) {
+  button,
+  .button {
+    width: 20%;
+  }
+}
+
+.btn-envoyer {
+  padding: 14px;
+  color: var(--accent-color-3);
+  text-transform: uppercase;
+}
+
+.close-form {
+  cursor: pointer;
+}
+
+.btn-annuler {
+  transition: color 0.3s ease;
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.btn-annuler:hover {
+  color: rgba(255, 255, 255, 1);
+}
+
+.btn-annuler:visited {
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.underline {
+  border-bottom: rgba(255, 255, 255, 0.6) solid 3px;
+}
+
+.underline:hover {
+  border-bottom: rgba(255, 255, 255, 1) solid 3px;
+}
+
+.annuler {
+  padding-top: 1rem;
+}
+
+/* Footer */
+#footer {
+  margin-bottom: 56px;
+  text-align: center;
+}
+
+/* Error styles */
+.error {
+  color: var(--accent-color-2) !important;
+  margin-bottom: 1rem;
+}

@@ -1,5 +1,7 @@
 import { NextRequest, NextResponse } from 'next/server';
-import nodemailer from 'nodemailer';
+import { Resend } from 'resend';
+
+const resend = new Resend(process.env.RESEND_API_KEY);
 
 export async function POST(request: NextRequest) {
   try {
@@ -10,46 +12,34 @@ export async function POST(request: NextRequest) {
       return NextResponse.json({ error: 'All fields are required' }, { status: 400 });
     }
 
-    // Create transporter (you'll need to configure this with your email service)
-    const transporter = nodemailer.createTransport({
-      host: process.env.SMTP_HOST || 'smtp.gmail.com',
-      port: parseInt(process.env.SMTP_PORT || '587'),
-      secure: false,
-      auth: {
-        user: process.env.SMTP_USER,
-        pass: process.env.SMTP_PASS,
-      },
-    });
-
-    // Email content
-    const emailBody = `You have received a new form submission. Details below:
-fullname: ${fullname}
-email: ${email}
-message: ${message}
-
-User's IP Address: ${request.headers.get('x-forwarded-for') || request.headers.get('x-real-ip') || 'Unknown'}`;
-
-    const autoResponseBody = `Hi
-
-Thanks for contacting us. We will get back to you soon!
-
-Regards`;
-
     // Send email to recipient
-    await transporter.sendMail({
+    await resend.emails.send({
       from: process.env.EMAIL_FROM || 'forms@houmph.com',
       to: process.env.EMAIL_RECIPIENTS || 'alaindesmeules@mac.com',
       subject: 'New Form submission',
-      text: emailBody,
+      html: `
+        <h2>New Contact Form Submission</h2>
+        <p><strong>Name:</strong> ${fullname}</p>
+        <p><strong>Email:</strong> ${email}</p>
+        <p><strong>Message:</strong></p>
+        <p>${message}</p>
+        <hr>
+        <p><small>User's IP Address: ${request.headers.get('x-forwarded-for') || request.headers.get('x-real-ip') || 'Unknown'}</small></p>
+      `,
       replyTo: email,
     });
 
     // Send auto-response to user
-    await transporter.sendMail({
+    await resend.emails.send({
       from: process.env.EMAIL_FROM || 'forms@houmph.com',
       to: email,
       subject: 'Thanks for contacting us',
-      text: autoResponseBody,
+      html: `
+        <h2>Thank you for contacting us!</h2>
+        <p>Hi ${fullname},</p>
+        <p>Thanks for contacting us. We will get back to you soon!</p>
+        <p>Best regards,<br>The Houmph Team</p>
+      `,
     });
 
     return NextResponse.json({ success: true });

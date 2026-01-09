@@ -7,7 +7,7 @@ A Next.js conversion of the original domain sales website, now ready for deploym
 - Responsive design with custom CSS grid layout
 - GSAP animations for interactive elements
 - Contact form with validation using React Hook Form
-- Email notifications using Nodemailer
+- Email notifications using Resend
 - TypeScript support
 - Optimized for Vercel deployment
 
@@ -21,10 +21,7 @@ npm install
 2. Configure environment variables:
 Create a `.env.local` file with the following variables:
 ```
-SMTP_HOST=smtp.gmail.com
-SMTP_PORT=587
-SMTP_USER=your-email@gmail.com
-SMTP_PASS=your-app-password
+RESEND_API_KEY=your_resend_api_key
 EMAIL_FROM=forms@houmph.com
 EMAIL_RECIPIENTS=alaindesmeules@mac.com
 ```
@@ -56,5 +53,5 @@ npm run dev
 - TypeScript
 - React Hook Form with Yup validation
 - GSAP for animations
-- Nodemailer for email handling
+- Resend for email handling
 - Custom CSS (converted from SCSS)

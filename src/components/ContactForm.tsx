@@ -69,8 +69,8 @@ export default function ContactForm({ isVisible, onClose }: ContactFormProps) {
         setIsSubmitted(true);
         reset();
       } else {
-        const errorData = await response.text();
-        setErrors(errorData);
+        const errorData = await response.json();
+        setErrors(errorData.error || 'Failed to submit form. Please try again.');
       }
     } catch {
       setErrors('An error occurred while submitting the form. Please try again.');

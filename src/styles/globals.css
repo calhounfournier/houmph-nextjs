@@ -317,20 +317,22 @@ div#errors {
   color: var(--accent-color-2) !important;
 }
 
-.contact-form #msg_submitting,
-.contact-form #msg_submitted {
-  display: none;
-}
-
 #msg_submitting,
 #msg_submitted {
   color: var(--accent-color-4);
   text-align: center;
+  padding: 2rem;
 }
 
 #msg_submitted h3 {
   border: none;
   margin-top: 28px;
+}
+
+#msg_submitted p {
+  color: var(--accent-color-4);
+  font-size: 1.2rem;
+  margin-bottom: 2rem;
 }
 
 /* Form Inputs */

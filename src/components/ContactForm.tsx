@@ -77,7 +77,7 @@ export default function ContactForm({ isVisible, onClose }: ContactFormProps) {
           
           {!isSubmitting && !isSubmitted && (
             <form id="contact-form" onSubmit={handleSubmit(onSubmit)}>
-              <h1 style={{ fontFamily: "'Kairos Sans W04', 'Lucida Bright', Georgia, serif", fontSize: "3rem" }}>Thank you for filling out this form.</h1>
+              <h2>Thank you for filling out this form.</h2>
               <input 
                 className="fullname" 
                 type="text" 
@@ -112,14 +112,15 @@ export default function ContactForm({ isVisible, onClose }: ContactFormProps) {
 
           {isSubmitting && (
             <div id="msg_submitting">
-              <h1 style={{ fontFamily: "'Kairos Sans W04', 'Lucida Bright', Georgia, serif" }}>Submitting...</h1>
+              <h2>Submitting...</h2>
             </div>
           )}
 
           {isSubmitted && (
             <div id="msg_submitted">
-              <h1 style={{ fontFamily: "'Kairos Sans W04', 'Lucida Bright', Georgia, serif" }}>Thank you!</h1>
-              <h3>Your informations were successfully transmitted.</h3>
+              <h2>Thank you!</h2>
+              <h3>Your message has been sent successfully.</h3>
+              <p>We will get back to you shortly.</p>
               <div className="annuler">
                 <a className="btn-annuler close-form underline" onClick={handleClose}>Close</a>
               </div>

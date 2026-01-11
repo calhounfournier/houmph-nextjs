@@ -13,7 +13,13 @@ export async function POST(request: NextRequest) {
       );
     }
 
-    const { fullname, email, message } = await request.json();
+    const { fullname, email, message, website } = await request.json();
+
+    // Honeypot check - if filled, it's likely a bot
+    if (website) {
+      // Silently reject by returning success (don't give feedback to bots)
+      return NextResponse.json({ success: true });
+    }
 
     // Validate required fields
     if (!fullname || !email || !message) {

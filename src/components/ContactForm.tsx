@@ -15,6 +15,7 @@ interface FormData {
   fullname: string;
   email: string;
   message: string;
+  website: string; // honeypot field
 }
 
 const schema = yup.object({
@@ -85,18 +86,36 @@ export default function ContactForm({ isVisible, onClose, selectedDomain }: Cont
           {!isSubmitting && !isSubmitted && (
             <form id="contact-form" onSubmit={handleSubmit(onSubmit)}>
               <h2>Thank you for filling out this form.</h2>
-              <input 
-                className="fullname" 
-                type="text" 
-                placeholder="Type your name here." 
+
+              {/* Honeypot field - hidden from users */}
+              <input
+                type="text"
+                {...register('website')}
+                style={{
+                  position: 'absolute',
+                  left: '-9999px',
+                  width: '1px',
+                  height: '1px',
+                  opacity: 0,
+                  pointerEvents: 'none'
+                }}
+                tabIndex={-1}
+                autoComplete="off"
+                aria-hidden="true"
+              />
+
+              <input
+                className="fullname"
+                type="text"
+                placeholder="Type your name here."
                 {...register('fullname')}
               />
               {formErrors.fullname && <div className="error">{formErrors.fullname.message}</div>}
-              
-              <input 
-                className="email" 
-                type="email" 
-                placeholder="Type your email here." 
+
+              <input
+                className="email"
+                type="email"
+                placeholder="Type your email here."
                 {...register('email')}
               />
               {formErrors.email && <div className="error">{formErrors.email.message}</div>}

@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import * as yup from 'yup';
@@ -8,6 +8,7 @@ import * as yup from 'yup';
 interface ContactFormProps {
   isVisible: boolean;
   onClose: () => void;
+  selectedDomain?: string;
 }
 
 interface FormData {
@@ -22,14 +23,20 @@ const schema = yup.object({
   message: yup.string().required('Please let us know which domain you are interested in.')
 });
 
-export default function ContactForm({ isVisible, onClose }: ContactFormProps) {
+export default function ContactForm({ isVisible, onClose, selectedDomain }: ContactFormProps) {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [errors, setErrors] = useState<string>('');
 
-  const { register, handleSubmit, formState: { errors: formErrors }, reset } = useForm<FormData>({
+  const { register, handleSubmit, formState: { errors: formErrors }, reset, setValue } = useForm<FormData>({
     resolver: yupResolver(schema)
   });
+
+  useEffect(() => {
+    if (selectedDomain && isVisible) {
+      setValue('message', `I'm interested in ${selectedDomain} domain`);
+    }
+  }, [selectedDomain, isVisible, setValue]);
 
   const onSubmit = async (data: FormData) => {
     setIsSubmitting(true);

@@ -131,6 +131,12 @@ const domainCategories = [
 
 export default function Home() {
   const [showForm, setShowForm] = useState(false);
+  const [selectedDomain, setSelectedDomain] = useState<string>('');
+
+  const handleDomainClick = (domain: string) => {
+    setSelectedDomain(domain);
+    setShowForm(true);
+  };
 
   return (
     <>
@@ -151,14 +157,15 @@ export default function Home() {
             id={category.id}
             title={category.title}
             domains={category.domains}
-            onDomainClick={() => setShowForm(true)}
+            onDomainClick={handleDomainClick}
           />
         ))}
       </div>
 
-      <ContactForm 
-        isVisible={showForm} 
-        onClose={() => setShowForm(false)} 
+      <ContactForm
+        isVisible={showForm}
+        onClose={() => setShowForm(false)}
+        selectedDomain={selectedDomain}
       />
 
       <section id="footer">

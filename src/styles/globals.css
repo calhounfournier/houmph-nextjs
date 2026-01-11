@@ -324,9 +324,14 @@ div#errors {
   padding: 2rem;
 }
 
+#msg_submitted h2 {
+  color: var(--accent-color-4);
+}
+
 #msg_submitted h3 {
   border: none;
   margin-top: 28px;
+  color: var(--accent-color-4);
 }
 
 #msg_submitted p {

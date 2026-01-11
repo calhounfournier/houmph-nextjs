@@ -2,7 +2,7 @@ interface DomainListProps {
   id: string;
   title: string;
   domains: string[];
-  onDomainClick: () => void;
+  onDomainClick: (domain: string) => void;
 }
 
 export default function DomainList({ id, title, domains, onDomainClick }: DomainListProps) {
@@ -12,7 +12,7 @@ export default function DomainList({ id, title, domains, onDomainClick }: Domain
       <hr />
       <ul>
         {domains.map((domain, index) => (
-          <li key={index} onClick={onDomainClick}>
+          <li key={index} onClick={() => onDomainClick(domain)}>
             {domain}
           </li>
         ))}

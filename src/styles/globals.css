@@ -1,36 +1,24 @@
 /* Font Face Declarations */
 @font-face {
-  font-family: "Kairos Sans W04";
-  src: url("/fonts/kairos_sans/b7c470cc-e9c9-4c17-a3f2-a769c0050fa0.eot?#iefix");
-  src: url("/fonts/kairos_sans/b7c470cc-e9c9-4c17-a3f2-a769c0050fa0.eot?#iefix") format("eot"),
-       url("/fonts/kairos_sans/628c2f20-157e-405f-a995-806d8f05c93a.woff2") format("woff2"),
-       url("/fonts/kairos_sans/c0d1a96e-4592-449b-ae0a-c734cb6596f6.woff") format("woff"),
-       url("/fonts/kairos_sans/9a7d76b4-6065-4143-b53a-c62f5179ebdb.ttf") format("truetype"),
-       url("/fonts/kairos_sans/36612a14-299e-417e-a372-35b4421b9a62.svg#36612a14-299e-417e-a372-35b4421b9a62") format("svg");
+  font-family: 'Kairos Sans W04';
+  src: url('/fonts/kairos_sans/b7c470cc-e9c9-4c17-a3f2-a769c0050fa0.eot?#iefix');
+  src: url('/fonts/kairos_sans/b7c470cc-e9c9-4c17-a3f2-a769c0050fa0.eot?#iefix') format('eot'), url('/fonts/kairos_sans/628c2f20-157e-405f-a995-806d8f05c93a.woff2') format('woff2'), url('/fonts/kairos_sans/c0d1a96e-4592-449b-ae0a-c734cb6596f6.woff') format('woff'), url('/fonts/kairos_sans/9a7d76b4-6065-4143-b53a-c62f5179ebdb.ttf') format('truetype'), url('/fonts/kairos_sans/36612a14-299e-417e-a372-35b4421b9a62.svg#36612a14-299e-417e-a372-35b4421b9a62') format('svg');
   font-weight: 400;
   font-style: normal;
 }
 
 @font-face {
-  font-family: "Kairos Sans W04";
-  src: url("/fonts/kairos_sans/539794b9-5970-4ea9-96a2-75dcf19bd7c8.eot?#iefix");
-  src: url("/fonts/kairos_sans/539794b9-5970-4ea9-96a2-75dcf19bd7c8.eot?#iefix") format("eot"),
-       url("/fonts/kairos_sans/8e41d84d-f72d-4dbf-ad6d-2670009fbaeb.woff2") format("woff2"),
-       url("/fonts/kairos_sans/e1e8ed7a-6ae9-47a4-8eb5-90a63a6569b0.woff") format("woff"),
-       url("/fonts/kairos_sans/b3fb2b53-ce6d-430d-bb26-bb88ebc783a3.ttf") format("truetype"),
-       url("/fonts/kairos_sans/2e76cdd8-07d7-4946-9bdd-6b5268184c5f.svg#2e76cdd8-07d7-4946-9bdd-6b5268184c5f") format("svg");
+  font-family: 'Kairos Sans W04';
+  src: url('/fonts/kairos_sans/539794b9-5970-4ea9-96a2-75dcf19bd7c8.eot?#iefix');
+  src: url('/fonts/kairos_sans/539794b9-5970-4ea9-96a2-75dcf19bd7c8.eot?#iefix') format('eot'), url('/fonts/kairos_sans/8e41d84d-f72d-4dbf-ad6d-2670009fbaeb.woff2') format('woff2'), url('/fonts/kairos_sans/e1e8ed7a-6ae9-47a4-8eb5-90a63a6569b0.woff') format('woff'), url('/fonts/kairos_sans/b3fb2b53-ce6d-430d-bb26-bb88ebc783a3.ttf') format('truetype'), url('/fonts/kairos_sans/2e76cdd8-07d7-4946-9bdd-6b5268184c5f.svg#2e76cdd8-07d7-4946-9bdd-6b5268184c5f') format('svg');
   font-weight: 800;
   font-style: normal;
 }
 
 @font-face {
-  font-family: "Yorkshire Script";
-  src: url("/fonts/yorkshire_script/yorkshirebrushscript-regular-webfont.eot");
-  src: url("/fonts/yorkshire_script/yorkshirebrushscript-regular-webfont.eot") format("eot"),
-       url("/fonts/yorkshire_script/yorkshirebrushscript-regular-webfont.woff2") format("woff2"),
-       url("/fonts/yorkshire_script/yorkshirebrushscript-regular-webfont.woff") format("woff"),
-       url("/fonts/yorkshire_script/yorkshirebrushscript-regular-webfont.ttf") format("truetype"),
-       url("/fonts/yorkshire_script/yorkshirebrushscript-regular-webfont.svg") format("svg");
+  font-family: 'Yorkshire Script';
+  src: url('/fonts/yorkshire_script/yorkshirebrushscript-regular-webfont.eot');
+  src: url('/fonts/yorkshire_script/yorkshirebrushscript-regular-webfont.eot') format('eot'), url('/fonts/yorkshire_script/yorkshirebrushscript-regular-webfont.woff2') format('woff2'), url('/fonts/yorkshire_script/yorkshirebrushscript-regular-webfont.woff') format('woff'), url('/fonts/yorkshire_script/yorkshirebrushscript-regular-webfont.ttf') format('truetype'), url('/fonts/yorkshire_script/yorkshirebrushscript-regular-webfont.svg') format('svg');
   font-weight: 400;
   font-style: normal;
 }
@@ -38,8 +26,8 @@
 /* CSS Variables */
 :root {
   --accent-color-1: black;
-  --accent-color-2: #E40046;
-  --accent-color-3: #FCE300;
+  --accent-color-2: #e40046;
+  --accent-color-3: #fce300;
   --accent-color-4: rgba(255, 255, 255, 0.8);
   --text-color: rgba(0, 0, 0, 0.77);
   --base-font-size: 22px;
@@ -57,10 +45,10 @@
 }
 
 body {
-  font-family: "Kairos Sans W04", 'Lucida Bright', Georgia, serif;
+  font-family: 'Kairos Sans W04', 'Lucida Bright', Georgia, serif;
   color: var(--text-color);
   text-rendering: optimizeLegibility;
-  font-size: 100%;
+  font-size: 150%;
   background-color: var(--accent-color-3);
   margin: 0;
   padding: 0;
@@ -80,7 +68,13 @@ body {
 }
 
 /* Typography */
-h1, h2, h3, h4, h5, h6, legend {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+legend {
   text-align: center;
 }
 
@@ -94,7 +88,7 @@ h1 {
 
 h2 {
   font-size: 3rem;
-  font-family: "Yorkshire Script";
+  font-family: 'Yorkshire Script';
   margin-bottom: 28px;
   line-height: 1.1;
   color: var(--text-color);
@@ -126,7 +120,7 @@ h2 {
 }
 
 h3 {
-  font-size: 1.5rem;
+  font-size: 2rem;
   border-top: solid 3px var(--text-color);
   border-bottom: solid 3px var(--text-color);
   padding: 7px 0;
@@ -138,7 +132,6 @@ h5 {
   color: var(--text-color);
   font-weight: 800;
   text-transform: uppercase;
-  font-size: 1rem;
 }
 
 h5 span {
@@ -202,20 +195,7 @@ li {
 
 li:hover {
   transform: scale(1.01) rotate(-1deg);
-  box-shadow: 0 1px 0 rgba(252, 227, 0, 0.9),
-              0 2px 0 rgba(252, 227, 0, 0.85),
-              0 3px 0 rgba(252, 227, 0, 0.8),
-              0 4px 0 rgba(252, 227, 0, 0.75),
-              0 5px 0 rgba(252, 227, 0, 0.7),
-              0 6px 0 rgba(252, 227, 0, 0.65),
-              0 7px 0 rgba(252, 227, 0, 0.6),
-              0 8px 0 rgba(252, 227, 0, 0.55),
-              0 0 5px rgba(0, 0, 0, 0.05),
-              0 1px 3px rgba(0, 0, 0, 0.2),
-              0 3px 5px rgba(0, 0, 0, 0.2),
-              0 5px 10px rgba(0, 0, 0, 0.2),
-              0 10px 10px rgba(0, 0, 0, 0.2),
-              0 20px 20px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 1px 0 rgba(252, 227, 0, 0.9), 0 2px 0 rgba(252, 227, 0, 0.85), 0 3px 0 rgba(252, 227, 0, 0.8), 0 4px 0 rgba(252, 227, 0, 0.75), 0 5px 0 rgba(252, 227, 0, 0.7), 0 6px 0 rgba(252, 227, 0, 0.65), 0 7px 0 rgba(252, 227, 0, 0.6), 0 8px 0 rgba(252, 227, 0, 0.55), 0 0 5px rgba(0, 0, 0, 0.05), 0 1px 3px rgba(0, 0, 0, 0.2), 0 3px 5px rgba(0, 0, 0, 0.2), 0 5px 10px rgba(0, 0, 0, 0.2), 0 10px 10px rgba(0, 0, 0, 0.2), 0 20px 20px rgba(0, 0, 0, 0.3);
 }
 
 hr {
@@ -294,7 +274,7 @@ section {
   font-size: 3rem;
   color: rgba(255, 255, 255, 0.6);
   transition: color 0.3s ease;
-  font-family: "Kairos Sans W04", 'Lucida Bright', Georgia, serif;
+  font-family: 'Kairos Sans W04', 'Lucida Bright', Georgia, serif;
 }
 
 @media (min-width: 600px) {
@@ -325,11 +305,11 @@ section {
 
 #contact-form h2 {
   color: var(--accent-color-4);
-  font-family: "Yorkshire Script";
+  font-family: 'Yorkshire Script';
 }
 
 #contact-form h3 {
-  font-family: "Kairos Sans W04", 'Lucida Bright', Georgia, serif;
+  font-family: 'Kairos Sans W04', 'Lucida Bright', Georgia, serif;
 }
 
 .contact-form label.error,
@@ -354,8 +334,8 @@ div#errors {
 }
 
 /* Form Inputs */
-input[type="text"],
-input[type="email"],
+input[type='text'],
+input[type='email'],
 textarea {
   text-align: center;
   -webkit-appearance: none;
@@ -369,43 +349,43 @@ textarea {
   background-color: rgba(0, 0, 0, 0);
   transition: border-color 0.3s ease;
   font-size: 1.5rem;
-  font-family: "Kairos Sans W04", 'Lucida Bright', Georgia, serif;
+  font-family: 'Kairos Sans W04', 'Lucida Bright', Georgia, serif;
 }
 
-input[type="text"]:focus,
-input[type="email"]:focus,
+input[type='text']:focus,
+input[type='email']:focus,
 textarea:focus {
   border-color: var(--accent-color-3);
   outline: none;
 }
 
 @media (min-width: 600px) {
-  input[type="text"],
-  input[type="email"],
+  input[type='text'],
+  input[type='email'],
   textarea {
     font-size: 2rem;
   }
 }
 
 @media (min-width: 750px) {
-  input[type="text"],
-  input[type="email"],
+  input[type='text'],
+  input[type='email'],
   textarea {
     font-size: 2.5rem;
   }
 }
 
 @media (min-width: 950px) {
-  input[type="text"],
-  input[type="email"],
+  input[type='text'],
+  input[type='email'],
   textarea {
     font-size: 3rem;
   }
 }
 
 @media (min-width: 1600px) {
-  input[type="text"],
-  input[type="email"],
+  input[type='text'],
+  input[type='email'],
   textarea {
     font-size: 3.5rem;
   }
@@ -440,7 +420,7 @@ button,
   background-color: rgba(0, 0, 0, 0);
   margin-top: 28px;
   font-size: 2.5rem;
-  font-family: "Kairos Sans W04", 'Lucida Bright', Georgia, serif;
+  font-family: 'Kairos Sans W04', 'Lucida Bright', Georgia, serif;
 }
 
 @media (min-width: 600px) {

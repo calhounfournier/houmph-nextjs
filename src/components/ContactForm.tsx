@@ -22,7 +22,7 @@ const schema = yup.object({
   fullname: yup.string().required('Please enter your name'),
   email: yup.string().email('Please enter a valid email address').required('Please enter your email address'),
   message: yup.string().required('Please let us know which domain you are interested in.'),
-  website: yup.string() // honeypot - should be empty
+  website: yup.string().optional() // honeypot - should be empty
 });
 
 export default function ContactForm({ isVisible, onClose, selectedDomain }: ContactFormProps) {

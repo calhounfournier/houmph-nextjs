@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import * as yup from 'yup';
@@ -15,20 +15,19 @@ interface FormData {
   fullname: string;
   email: string;
   message: string;
-  website?: string; // honeypot field (optional)
 }
 
 const schema = yup.object({
   fullname: yup.string().required('Please enter your name'),
   email: yup.string().email('Please enter a valid email address').required('Please enter your email address'),
-  message: yup.string().required('Please let us know which domain you are interested in.'),
-  website: yup.string().optional() // honeypot - should be empty
+  message: yup.string().required('Please let us know which domain you are interested in.')
 });
 
 export default function ContactForm({ isVisible, onClose, selectedDomain }: ContactFormProps) {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [errors, setErrors] = useState<string>('');
+  const websiteRef = useRef<HTMLInputElement>(null);
 
   const { register, handleSubmit, formState: { errors: formErrors }, reset, setValue } = useForm<FormData>({
     resolver: yupResolver(schema)
@@ -44,13 +43,16 @@ export default function ContactForm({ isVisible, onClose, selectedDomain }: Cont
     setIsSubmitting(true);
     setErrors('');
 
+    // Add honeypot value to submission
+    const website = websiteRef.current?.value || '';
+
     try {
       const response = await fetch('/api/contact', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify(data),
+        body: JSON.stringify({ ...data, website }),
       });
 
       if (response.ok) {
@@ -91,7 +93,8 @@ export default function ContactForm({ isVisible, onClose, selectedDomain }: Cont
               {/* Honeypot field - hidden from users */}
               <input
                 type="text"
-                {...register('website')}
+                ref={websiteRef}
+                name="website"
                 style={{
                   position: 'absolute',
                   left: '-9999px',

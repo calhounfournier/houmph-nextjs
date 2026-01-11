@@ -16,15 +16,18 @@ Before deploying, make sure you have:
 ### You Already Have a Mailgun Account! ✓
 
 1. **Login to Mailgun:**
+
    - Go to https://app.mailgun.com
    - Login with your credentials
 
 2. **Get Your API Key:**
+
    - Go to Settings > API Keys (https://app.mailgun.com/app/account/security/api_keys)
    - Copy your **Private API key** (starts with a long string)
    - **Important:** Use the Private API key, not the Public key
 
 3. **Get Your Domain:**
+
    - Go to Sending > Domains (https://app.mailgun.com/app/sending/domains)
    - You'll see your domain(s) listed
    - Copy the domain name (e.g., `mg.yourdomain.com` or `sandboxXXXX.mailgun.org`)
@@ -37,18 +40,21 @@ Before deploying, make sure you have:
 ### Mailgun Account Types
 
 **Sandbox Domain (Trial):**
+
 - Free for testing
 - Can send to authorized recipients only (you need to verify recipient emails)
 - Domain looks like: `sandboxXXXXXXXX.mailgun.org`
 - Good for: Testing before production
 
 **Custom Domain:**
+
 - Your own verified domain
 - Can send to anyone
 - Requires DNS configuration
 - Good for: Production use
 
 **Free Tier (Flex Trial):**
+
 - 5,000 emails/month for first 3 months
 - Perfect for this contact form
 
@@ -59,6 +65,7 @@ Before deploying, make sure you have:
 ### Method A: Using Vercel Dashboard (Recommended)
 
 1. **Push your code to Git:**
+
    ```bash
    git add .
    git commit -m "Configure Mailgun for email sending"
@@ -66,12 +73,14 @@ Before deploying, make sure you have:
    ```
 
 2. **Import to Vercel:**
+
    - Go to https://vercel.com
    - Click "Add New" > "Project"
    - Import your repository
    - Select the repository
 
 3. **Configure Settings:**
+
    - Framework Preset: Next.js (auto-detected)
    - Root Directory: `./`
    - Leave build settings as default
@@ -79,18 +88,19 @@ Before deploying, make sure you have:
 4. **Add Environment Variables:**
    Click "Environment Variables" and add these **5 variables**:
 
-   | Name | Value | Example |
-   |------|-------|---------|
-   | `MAILGUN_API_KEY` | Your Mailgun private API key | `a1b2c3d4e5f6g7h8i9j0...` |
-   | `MAILGUN_DOMAIN` | Your Mailgun domain | `mg.yourdomain.com` or `sandboxXXXX.mailgun.org` |
-   | `MAILGUN_API_URL` | API endpoint based on region | `https://api.mailgun.net` (US) or `https://api.eu.mailgun.net` (EU) |
-   | `EMAIL_FROM` | Sender email (must use Mailgun domain) | `noreply@mg.yourdomain.com` |
-   | `EMAIL_RECIPIENTS` | Where to send form submissions | `cafournier@me.com` |
+   | Name               | Value                                  | Example                                                             |
+   | ------------------ | -------------------------------------- | ------------------------------------------------------------------- |
+   | `MAILGUN_API_KEY`  | Your Mailgun private API key           | `a1b2c3d4e5f6g7h8i9j0...`                                           |
+   | `MAILGUN_DOMAIN`   | Your Mailgun domain                    | `mg.yourdomain.com` or `sandboxXXXX.mailgun.org`                    |
+   | `MAILGUN_API_URL`  | API endpoint based on region           | `https://api.mailgun.net` (US) or `https://api.eu.mailgun.net` (EU) |
+   | `EMAIL_FROM`       | Sender email (must use Mailgun domain) | `noreply@mg.yourdomain.com`                                         |
+   | `EMAIL_RECIPIENTS` | Where to send form submissions         | `alaindesmeules@mac.com`                                            |
 
    **Important:**
+
    - Add them for **Production**, **Preview**, and **Development** (select all)
    - The `EMAIL_FROM` address **must** use your `MAILGUN_DOMAIN`
-   - If using sandbox, you need to add `cafournier@me.com` as an authorized recipient in Mailgun
+   - If using sandbox, you need to add `alaindesmeules@mac.com` as an authorized recipient in Mailgun
 
 5. **Deploy:**
    - Click "Deploy"
@@ -102,26 +112,31 @@ Before deploying, make sure you have:
 ### Method B: Using Vercel CLI
 
 1. **Login to Vercel:**
+
    ```bash
    vercel login
    ```
+
    Follow the prompts to authenticate
 
 2. **Deploy:**
+
    ```bash
    cd /workspace
    vercel
    ```
 
    When prompted:
+
    - Set up and deploy? **Y**
    - Which scope? Select your account
    - Link to existing project? **N**
    - Project name? **houmph-nextjs** (or your preferred name)
-   - In which directory is your code? **./
+   - In which directory is your code? \*\*./
    - Want to modify settings? **N**
 
 3. **Add Environment Variables:**
+
    ```bash
    # Add MAILGUN_API_KEY
    vercel env add MAILGUN_API_KEY production
@@ -141,7 +156,7 @@ Before deploying, make sure you have:
 
    # Add EMAIL_RECIPIENTS
    vercel env add EMAIL_RECIPIENTS production
-   # Enter: cafournier@me.com
+   # Enter: alaindesmeules@mac.com
    ```
 
    Repeat for `preview` and `development` environments if needed
@@ -161,7 +176,7 @@ If you're using a Mailgun sandbox domain for testing, you need to authorize reci
 2. Click on your sandbox domain
 3. Scroll to "Authorized Recipients"
 4. Click "Add Recipient"
-5. Enter `cafournier@me.com`
+5. Enter `alaindesmeules@mac.com`
 6. Mailgun will send a confirmation email to that address
 7. Check the inbox and click the verification link
 
@@ -176,6 +191,7 @@ If you're using a Mailgun sandbox domain for testing, you need to authorize reci
 1. **Open your deployed site** (URL provided after deployment)
 
 2. **Test the contact form:**
+
    - Click to open the contact form
    - Fill in:
      - Name: Test User
@@ -186,11 +202,13 @@ If you're using a Mailgun sandbox domain for testing, you need to authorize reci
    - Should see "Thank you!" message
 
 3. **Verify emails arrived:**
-   - Check `cafournier@me.com` inbox for notification email
+
+   - Check `alaindesmeules@mac.com` inbox for notification email
    - Check your test email inbox for auto-response
    - Both should arrive within seconds
 
 4. **Check Mailgun dashboard:**
+
    - Go to https://app.mailgun.com/app/sending/logs
    - Filter by last 24 hours
    - You should see 2 emails: one to recipient, one auto-response
@@ -206,9 +224,11 @@ If you're using a Mailgun sandbox domain for testing, you need to authorize reci
 ## Troubleshooting
 
 ### "Email service is not configured"
+
 **Problem:** Missing `MAILGUN_API_KEY` or `MAILGUN_DOMAIN` in Vercel
 
 **Solution:**
+
 1. Go to Vercel Dashboard > Project > Settings > Environment Variables
 2. Verify both `MAILGUN_API_KEY` and `MAILGUN_DOMAIN` exist
 3. Redeploy: Go to Deployments > Click "..." > Redeploy
@@ -216,26 +236,31 @@ If you're using a Mailgun sandbox domain for testing, you need to authorize reci
 ---
 
 ### "Failed to send email" or Emails not arriving
+
 **Problem:** Could be several issues
 
 **Solutions to try:**
 
 1. **Using Sandbox Domain?**
+
    - Make sure recipient email is authorized in Mailgun
    - Go to Mailgun > Domains > Your Sandbox > Authorized Recipients
-   - Add and verify `cafournier@me.com`
+   - Add and verify `alaindesmeules@mac.com`
 
 2. **Wrong Region?**
+
    - Check if your Mailgun account is in EU or US
    - Update `MAILGUN_API_URL` in Vercel accordingly:
      - US: `https://api.mailgun.net`
      - EU: `https://api.eu.mailgun.net`
 
 3. **Wrong API Key?**
+
    - Make sure you're using the **Private API key**, not Public
    - Get it from: Settings > API Keys > Private API key
 
 4. **Sender Email Mismatch?**
+
    - `EMAIL_FROM` must use your `MAILGUN_DOMAIN`
    - Wrong: `noreply@gmail.com`
    - Right: `noreply@mg.yourdomain.com`
@@ -248,9 +273,11 @@ If you're using a Mailgun sandbox domain for testing, you need to authorize reci
 ---
 
 ### 500 Internal Server Error
+
 **Problem:** Server-side error
 
 **Solution:**
+
 1. Check Vercel function logs (Dashboard > Logs)
 2. Look for specific error message
 3. Common issues:
@@ -264,13 +291,15 @@ If you're using a Mailgun sandbox domain for testing, you need to authorize reci
 ---
 
 ### Sandbox Recipient Not Authorized
+
 **Problem:** Using sandbox domain but recipient not verified
 
 **Solution:**
+
 1. Go to Mailgun dashboard
 2. Sending > Domains > Click your sandbox domain
 3. Scroll to "Authorized Recipients"
-4. Add `cafournier@me.com`
+4. Add `alaindesmeules@mac.com`
 5. Check email and verify
 6. Try sending again
 
@@ -280,14 +309,14 @@ If you're using a Mailgun sandbox domain for testing, you need to authorize reci
 
 ### Your Configuration
 
-- **Recipient Email:** cafournier@me.com
+- **Recipient Email:** alaindesmeules@mac.com
 - **Mailgun Account:** ✓ (You already have this!)
 - **Environment Variables Needed:**
   - `MAILGUN_API_KEY` ✓ (required - from Mailgun Settings)
   - `MAILGUN_DOMAIN` ✓ (required - from Mailgun Domains)
   - `MAILGUN_API_URL` (optional - defaults to US)
   - `EMAIL_FROM` (optional - defaults to noreply@[MAILGUN_DOMAIN])
-  - `EMAIL_RECIPIENTS` (optional - defaults to cafournier@me.com)
+  - `EMAIL_RECIPIENTS` (optional - defaults to alaindesmeules@mac.com)
 
 ### Important URLs
 
@@ -314,7 +343,7 @@ If you're using a Mailgun sandbox domain for testing, you need to authorize reci
 - ✅ Environment variables documented
 - ✅ Error handling added
 - ✅ Form validation configured
-- ✅ Recipient email set to cafournier@me.com
+- ✅ Recipient email set to alaindesmeules@mac.com
 - ✅ Build verified and working
 - ✅ Mailgun SDK installed and configured
 - ✅ Support for US and EU regions

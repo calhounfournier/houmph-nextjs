@@ -52,7 +52,6 @@ export const useDomainAnimations = () => {
     domainItems.forEach((element) => {
       const animation = gsap.to(element, {
         duration: 0.1,
-        className: '+= superShadow',
         rotation: -1,
         scale: 1.01,
         paused: true,

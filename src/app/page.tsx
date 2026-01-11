@@ -3,7 +3,6 @@
 import { useState } from 'react';
 import ContactForm from '@/components/ContactForm';
 import DomainList from '@/components/DomainList';
-import { useDomainAnimations } from '@/hooks/useGSAP';
 import '@/styles/globals.css';
 
 const domainCategories = [
@@ -132,9 +131,6 @@ const domainCategories = [
 
 export default function Home() {
   const [showForm, setShowForm] = useState(false);
-  
-  // Initialize domain animations
-  useDomainAnimations();
 
   return (
     <>

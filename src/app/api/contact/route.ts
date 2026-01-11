@@ -7,10 +7,7 @@ export async function POST(request: NextRequest) {
     // Validate Mailgun credentials exist
     if (!process.env.MAILGUN_API_KEY || !process.env.MAILGUN_DOMAIN) {
       console.error('MAILGUN_API_KEY or MAILGUN_DOMAIN is not configured');
-      return NextResponse.json(
-        { error: 'Email service is not configured. Please contact support.' },
-        { status: 500 }
-      );
+      return NextResponse.json({ error: 'Email service is not configured. Please contact support.' }, { status: 500 });
     }
 
     const { fullname, email, message, website } = await request.json();
@@ -41,7 +38,7 @@ export async function POST(request: NextRequest) {
     });
 
     const fromEmail = process.env.EMAIL_FROM || `noreply@${process.env.MAILGUN_DOMAIN}`;
-    const recipientEmail = process.env.EMAIL_RECIPIENTS || 'cafournier@me.com';
+    const recipientEmail = process.env.EMAIL_RECIPIENTS || 'alaindesmeules@mac.com';
 
     // Send email to recipient
     await mg.messages.create(process.env.MAILGUN_DOMAIN, {
@@ -79,9 +76,6 @@ export async function POST(request: NextRequest) {
     console.error('Error processing contact form:', error);
 
     // Return user-friendly error
-    return NextResponse.json(
-      { error: 'Failed to send email. Please try again later.' },
-      { status: 500 }
-    );
+    return NextResponse.json({ error: 'Failed to send email. Please try again later.' }, { status: 500 });
   }
 }

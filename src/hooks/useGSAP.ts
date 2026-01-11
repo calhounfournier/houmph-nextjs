@@ -47,7 +47,8 @@ export const useGSAP = () => {
 export const useDomainAnimations = () => {
   useEffect(() => {
     const domainItems = document.querySelectorAll('li');
-    
+    const cleanupFunctions: (() => void)[] = [];
+
     domainItems.forEach((element) => {
       const animation = gsap.to(element, {
         duration: 0.1,
@@ -64,10 +65,14 @@ export const useDomainAnimations = () => {
       element.addEventListener('mouseenter', handleMouseEnter);
       element.addEventListener('mouseleave', handleMouseLeave);
 
-      return () => {
+      cleanupFunctions.push(() => {
         element.removeEventListener('mouseenter', handleMouseEnter);
         element.removeEventListener('mouseleave', handleMouseLeave);
-      };
+      });
     });
+
+    return () => {
+      cleanupFunctions.forEach(cleanup => cleanup());
+    };
   }, []);
 };

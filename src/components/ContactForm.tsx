@@ -15,7 +15,7 @@ interface FormData {
   fullname: string;
   email: string;
   message: string;
-  website: string; // honeypot field
+  website?: string; // honeypot field (optional)
 }
 
 const schema = yup.object({

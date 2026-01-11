@@ -1,10 +1,9 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import * as yup from 'yup';
-import { gsap } from 'gsap';
 
 interface ContactFormProps {
   isVisible: boolean;
@@ -31,26 +30,6 @@ export default function ContactForm({ isVisible, onClose }: ContactFormProps) {
   const { register, handleSubmit, formState: { errors: formErrors }, reset } = useForm<FormData>({
     resolver: yupResolver(schema)
   });
-
-  useEffect(() => {
-    if (isSubmitting) {
-      const submitText = document.getElementById('h2_submitting');
-      if (submitText) {
-        const chars = submitText.textContent?.split('') || [];
-        gsap.fromTo(chars, 
-          { y: "-15" },
-          { 
-            y: 0,
-            duration: 0.6,
-            yoyo: true,
-            repeat: -1,
-            stagger: 0.2,
-            ease: "power2.inOut"
-          }
-        );
-      }
-    }
-  }, [isSubmitting]);
 
   const onSubmit = async (data: FormData) => {
     setIsSubmitting(true);
@@ -98,7 +77,7 @@ export default function ContactForm({ isVisible, onClose }: ContactFormProps) {
           
           {!isSubmitting && !isSubmitted && (
             <form id="contact-form" onSubmit={handleSubmit(onSubmit)}>
-              <h2>Thank you for filling out this form.</h2>
+              <h1 style={{ fontFamily: "'Kairos Sans W04', 'Lucida Bright', Georgia, serif", fontSize: "3rem" }}>Thank you for filling out this form.</h1>
               <input 
                 className="fullname" 
                 type="text" 
@@ -133,13 +112,13 @@ export default function ContactForm({ isVisible, onClose }: ContactFormProps) {
 
           {isSubmitting && (
             <div id="msg_submitting">
-              <h2>Submitting<span id="h2_submitting">...</span></h2>
+              <h1 style={{ fontFamily: "'Kairos Sans W04', 'Lucida Bright', Georgia, serif" }}>Submitting...</h1>
             </div>
           )}
 
           {isSubmitted && (
             <div id="msg_submitted">
-              <h2>Thank you!</h2>
+              <h1 style={{ fontFamily: "'Kairos Sans W04', 'Lucida Bright', Georgia, serif" }}>Thank you!</h1>
               <h3>Your informations were successfully transmitted.</h3>
               <div className="annuler">
                 <a className="btn-annuler close-form underline" onClick={handleClose}>Close</a>

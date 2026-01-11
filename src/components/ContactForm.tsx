@@ -35,7 +35,7 @@ export default function ContactForm({ isVisible, onClose, selectedDomain }: Cont
 
   useEffect(() => {
     if (selectedDomain && isVisible) {
-      setValue('message', `I'm interested in ${selectedDomain} domain`);
+      setValue('message', `I’m interested in ${selectedDomain} domain`);
     }
   }, [selectedDomain, isVisible, setValue]);
 
